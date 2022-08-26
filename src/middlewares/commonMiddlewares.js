@@ -6,9 +6,18 @@ const mid1= function ( req, res, next) {
 }
 
 const mid2= function ( req, res, next) {
-    console.log("Hi I am a middleware named Mid2")
-    next()
+   
+    let isFreeApp = req.headers.isFreeAppUser
+    console.log(isFreeApp)
+if(!isFreeApp){
+  return  res.send({msg:"pleace enter isFreeAppUse r"})
 }
+
+else{
+    console.log("Hi I am a middleware named Mid2")
+   next()}
+}
+
 
 const mid3= function ( req, res, next) {
     console.log("Hi I am a middleware named Mid3")

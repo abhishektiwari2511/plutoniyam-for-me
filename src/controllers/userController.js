@@ -1,3 +1,4 @@
+const userModel = require("../models/userModel")
 const UserModel= require("../models/userModel")
 
 
@@ -11,6 +12,13 @@ const basicCode= async function(req, res, next) {
     console.log( "hey man, congrats you have reached the Handler")
     //res.send({ msg: "This is coming from controller (handler)"})
     next()
+    }
+    const createuse= async function(req,res){
+        let data = req.body
+        let token =req.headers.isFreeAppUser
+        data.isFreeAppUser=token
+        let savedData= await userModel.create(data)
+        res.send({msg:savedData})
     }
 
 const createUser= async function (req, res) {
@@ -45,3 +53,4 @@ const getUsersData= async function (req, res) {
 module.exports.createUser= createUser
 module.exports.getUsersData= getUsersData
 module.exports.basicCode= basicCode
+module.exports.createUse= createuse
