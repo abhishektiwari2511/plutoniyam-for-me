@@ -9,7 +9,7 @@ const createOrder = async function (req, res) {
   if (!userId) {
     return res.send({ msg: 'userId is mandatory in the request' })
   } else if (!productId) {
-    return res.send("please enter valid productId")
+    return res.send({msg:"productId is mandatory in the request"})
   }
 
   let UserId = await userModel.findById(userId)
@@ -22,13 +22,13 @@ const createOrder = async function (req, res) {
   } else { }
 
 
-  let tokan = req.headers.isfreeappuser
-  console.log(tokan)
+  let token = req.headers.isfreeappuser
+  console.log(token)
   let val = 0
   //if isFreeAppUser is true
-  if (tokan === 'true') {
+  if (token === 'true') {
     data.amount = val
-    data.isFreeAppUser = tokan
+    data.isFreeAppUser = token
     let savedData = await orderModel.create(data)
     res.send({ data: savedData })
 
@@ -36,7 +36,7 @@ const createOrder = async function (req, res) {
   else if (UserId.balance >= ProductId.price) {
 
     await userModel.findOneAndUpdate({ _id: userId },
-      { $set: { balance: UserId.balance - ProductId.price } })
+      { $set: { balance: UserId.balance - ProductId.price } }) //30
     data['amount'] = ProductId.price;
     data['isFreeAppUser'] = req.headers.isfreeappuser;
 

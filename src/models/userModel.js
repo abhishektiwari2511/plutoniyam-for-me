@@ -17,18 +17,9 @@ const userSchema = new mongoose.Schema( {
         default:false
     }
     
-    // isIndian: Boolean,
-    // parentsInfo: {
-    //     motherName: String,
-    //     fatherName: String,
-    //     siblingName: String
-    // },
-    // cars: [ String  ]
+    
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema) //users
 
 
-
-// String, Number
-// Boolean, Object/json, array
