@@ -12,6 +12,5 @@ const collegeModel = new mongoose.Schema(
 
     }, { timestamps: true })
 
-
-//=====================Module Export=====================//
+    //=====================Module Export=====================//
 module.exports = mongoose.model('CollegeData', collegeModel)

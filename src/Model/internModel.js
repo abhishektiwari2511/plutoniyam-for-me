@@ -14,6 +14,5 @@ const internModel = new mongoose.Schema(
 
     }, { timestamps: true })
 
-
 //=====================Module Export=====================//
 module.exports = mongoose.model('InternData', internModel)

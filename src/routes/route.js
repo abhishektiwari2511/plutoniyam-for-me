@@ -16,7 +16,5 @@ router.post("/functionup/interns", createIntern)
 router.get("/functionup/collegeDetails", getCollegeData)
 
 
-
-
 //=====================Module Export=====================//
 module.exports = router;   

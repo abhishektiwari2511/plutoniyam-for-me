@@ -20,7 +20,5 @@ const regForEmail = function (value) { return (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\
 
 const regForMobileNo = function (value) { return (/^((\+91)?|91)?[789][0-9]{9}$/g).test(value) }
 
-
-
 //=====================Module Export=====================//
 module.exports = { valid, regForName, regForFullName, regForLink, regForExtension, regForEmail, regForMobileNo }
