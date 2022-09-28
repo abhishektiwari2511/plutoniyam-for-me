@@ -7,7 +7,7 @@ const { valid, regForName, regForFullName, regForLink, regForExtension } = requi
 
 //===================== This function is used for Creating a College Data =====================//
 const createCollege = async function (req, res) {
-
+ 
     try {
         let data = req.body
 
@@ -53,6 +53,7 @@ const createCollege = async function (req, res) {
 
 //===================== This function is used for Get College Data =====================//
 const getCollegeData = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let collegeName = req.query.collegeName
 

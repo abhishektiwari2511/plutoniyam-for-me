@@ -1,16 +1,18 @@
 //=====================Importing Module and Packages=====================//
 const express = require('express');
 const bodyParser = require('body-parser');
+const multer = require('multer')
 const route = require('./routes/route.js');
 const { default: mongoose } = require('mongoose');
 const moment = require('moment');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(multer().any())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect("mongodb+srv://raj_3028:kWaM507ps0Icsdg0@cluster0.pw23ckf.mongodb.net/group21Database", {
+mongoose.connect("mongodb://abhishek251119:abhishek2511@ac-z8sfqfr-shard-00-00.2zhuz3d.mongodb.net:27017,ac-z8sfqfr-shard-00-01.2zhuz3d.mongodb.net:27017,ac-z8sfqfr-shard-00-02.2zhuz3d.mongodb.net:27017/pro2?replicaSet=atlas-4htqnt-shard-0&ssl=true&authSource=admin", {
     useNewUrlParser: true
 })
     .then(() => console.log("MongoDb is Connected."))
@@ -42,6 +44,6 @@ app.use(function (req, res) {
 
 
 
-app.listen(process.env.PORT || 3000, function () {
-    console.log('Express App Running on Port: ' + (process.env.PORT || 3000))
+app.listen(process.env.PORT || 3001, function () {
+    console.log('Express App Running on Port: ' + (process.env.PORT || 3001))
 });
